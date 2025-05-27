@@ -40,8 +40,8 @@ public class ClassesService {
 
         if(classes.getDate() != null){
             existingClass.setDate(classes.getDate());
-            classesRepository.save(existingClass);
+            return classesRepository.save(existingClass);
         }
-        return classesRepository.save(existingClass);
+        return existingClass;
     }
 }
