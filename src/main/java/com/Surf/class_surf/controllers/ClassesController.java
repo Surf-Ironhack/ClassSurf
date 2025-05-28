@@ -30,7 +30,7 @@ public class ClassesController {
     }
 
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.FOUND)
+    @ResponseStatus(HttpStatus.OK)
     private Classes getFindClassById(@PathVariable Long id){
         return classesService.getFindClassById(id);
     }
