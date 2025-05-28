@@ -31,8 +31,8 @@ public class ClassesService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Clase no agendada"));
     }
 
-    public Classes pathChangeDate (String nameClass, Classes classes){
-        Classes existingClass = classesRepository.findByNameClass(nameClass).orElse(null);
+    public Classes patchChangeDate (Long id, Classes classes){
+        Classes existingClass = classesRepository.findById(id).orElse(null);
 
         if(existingClass == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Clase no agendada");

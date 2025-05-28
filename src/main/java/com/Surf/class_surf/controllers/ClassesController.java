@@ -41,9 +41,9 @@ public class ClassesController {
         return classesService.getFindClassByDate(date);
     }
 
-    @PatchMapping("/classes/{nameClass}")
+    @PatchMapping("/updateDate/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Classes pathChangeDate(@PathVariable String nameClass, @RequestBody Classes classes) {
-        return classesService.pathChangeDate(nameClass, classes);
+    public Classes patchChangeDate(@PathVariable Long id, @RequestBody Classes classes) {
+        return classesService.patchChangeDate(id, classes);
     }
 }
