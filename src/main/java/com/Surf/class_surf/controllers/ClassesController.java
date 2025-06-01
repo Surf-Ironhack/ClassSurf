@@ -2,6 +2,7 @@ package com.Surf.class_surf.controllers;
 
 import com.Surf.class_surf.models.Classes;
 import com.Surf.class_surf.service.ClassesService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class ClassesController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public Classes createClasses(@RequestBody Classes monitor) {
+    public Classes createClasses(@RequestBody @Valid Classes monitor) {
         return classesService.postCreateClasses(monitor);
     }
 
@@ -43,7 +44,7 @@ public class ClassesController {
 
     @PatchMapping("/updateDate/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Classes patchChangeDate(@PathVariable Long id, @RequestBody Classes classes) {
+    public Classes patchChangeDate(@PathVariable Long id, @RequestBody @Valid Classes classes) {
         return classesService.patchChangeDate(id, classes);
     }
 }

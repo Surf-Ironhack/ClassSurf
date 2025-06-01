@@ -43,9 +43,9 @@ public class ClassesTestController {
     @Test
     void postCreatedClass() throws Exception {
         Classes classes = new Classes();
-        classes.setNameClass("Remada");
-        classes.setLevel("De 0 a 1");
-        classes.setDate(LocalDate.of(2025, 5, 28));
+        classes.setNameClass("Dirección de las olas");
+        classes.setLevel("Nivel 2");
+        classes.setDate(LocalDate.of(2025, 6, 15));
 
         String body = objectMapper.writeValueAsString(classes);
         MvcResult mvcResult = mockMvc.perform(post("/classes/register")
@@ -54,7 +54,7 @@ public class ClassesTestController {
 
         ).andExpect(status().isCreated()).andReturn();
 
-        assertTrue(mvcResult.getResponse().getContentAsString().contains("De 0 a 1"));
+        assertTrue(mvcResult.getResponse().getContentAsString().contains("Nivel 2"));
     }
 
     @Test
@@ -84,7 +84,7 @@ public class ClassesTestController {
     void postAndDeleteClass() throws Exception {
         Classes classes = new Classes();
         classes.setNameClass("Olas");
-        classes.setLevel("De 0 a 1");
+        classes.setLevel("Nivel 2");
         classes.setDate(LocalDate.of(2025, 5, 28));
 
         String body = objectMapper.writeValueAsString(classes);
